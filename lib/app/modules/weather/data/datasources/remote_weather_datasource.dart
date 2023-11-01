@@ -45,7 +45,7 @@ class RemoteWeatherDatasource implements WeatherDatasource {
   Future<Weather> getWeather({required String lat, required String lon}) async {
     try {
       // TODO: uncomment when api is ready
-      // final response = await dio.get('/forecast');
+      // final response = await dio.get('/weather');
       final response = Response(
           requestOptions: RequestOptions(path: "/weather"),
           statusCode: 200,
