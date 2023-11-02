@@ -1,10 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skywatch/app/core/widgets/failure_widget.dart';
+import 'package:skywatch/app/core/widgets/text/text_subtitle.dart';
+
+import 'package:skywatch/app/modules/weather/presentation/weather/pages/bloc/weather_bloc.dart';
+import 'package:skywatch/app/modules/weather/presentation/weather/pages/bloc/weather_state.dart';
+import 'package:skywatch/app/modules/weather/presentation/weather/widgets/weather_card_widget.dart';
 
 class WeatherPage extends StatelessWidget {
-  const WeatherPage({super.key});
-
+  const WeatherPage({
+    Key? key,
+    required this.bloc,
+  }) : super(key: key);
+  final WeatherBloc bloc;
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
+        child: Column(
+          children: [
+            BlocBuilder<WeatherBloc, WeatherState>(
+                bloc: bloc,
+                builder: (context, snapshot) {
+                  if (snapshot is WeatherSuccessState) {
+                    return WeatherCardWidget(
+                        weather: snapshot.weather, name: "Chicago");
+                  }
+                  if (snapshot is WeatherFailureState) {
+                    return FailureWidget(text: snapshot.failure.message);
+                  }
+                  if (snapshot is WeatherLoadingState) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                  return const SizedBox.shrink();
+                }),
+            const SizedBox(
+              height: 24.0,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/weather/forecast');
+                },
+                child: const TextSubtitle(text: "See forecast"))
+          ],
+        ),
+      ),
+    );
   }
 }
