@@ -43,7 +43,11 @@ class RemoteVideoDatasource implements VideoDatasource {
   Future<bool> uploadVideo({required UploadFile file}) async {
     try {
       // TODO: uncomment when api is ready
-      //final response = await dio.post('/videos', data: UploadFileAdapter.toJson(file));
+      //final task = UploadTask(url: '/videos', filename: basename(file.file.path), fields: {"description": file.description  });
+
+      //final response = await FileDownloader().upload(task, onProgress: (progress){
+        //alert ui
+      //});
       final response = Response(
           requestOptions: RequestOptions(path: "/videos"),
           statusCode: 200,
