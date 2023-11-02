@@ -9,6 +9,7 @@ class ForecastAdapter {
       id: json['id'],
       description: json['description'],
       icon: json['icon'],
+      day: json['day']
     );
   }
 }
