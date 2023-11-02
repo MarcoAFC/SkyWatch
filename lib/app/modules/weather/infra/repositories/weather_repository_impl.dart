@@ -12,7 +12,15 @@ class WeatherRepositoryImpl implements WeatherRepository {
   @override
   Future<List<Forecast>> getForecast(
       {required String lat, required String lon}) async {
-    return await datasource.getForecast(lat: lat, lon: lon);
+    try {
+      return await datasource.getForecast(lat: lat, lon: lon);
+    } on Failure {
+      rethrow;
+    } catch (error, stackTrace) {
+      throw Failure(
+          message: 'An unexpected error has ocurred, please try again later',
+          stackTrace: stackTrace);
+    }
   }
 
   @override
