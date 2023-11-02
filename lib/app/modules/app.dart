@@ -15,7 +15,7 @@ class App extends StatelessWidget {
         '/' : (context) =>  const MainPage(),
         '/weather': (context) => WeatherPage(bloc: DependencyHandler().get(),),
         '/weather/forecast': (context) => ForecastPage(bloc: DependencyHandler().get(),),
-        '/camera': (context) => const CameraPage(),
+        '/camera': (context) => CameraPage(),
       },
     );
   }
