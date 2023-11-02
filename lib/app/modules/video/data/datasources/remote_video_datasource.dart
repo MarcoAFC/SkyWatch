@@ -48,6 +48,7 @@ class RemoteVideoDatasource implements VideoDatasource {
       //final response = await FileDownloader().upload(task, onProgress: (progress){
         //alert ui
       //});
+      await Future.delayed(Duration(seconds: 2));
       final response = Response(
           requestOptions: RequestOptions(path: "/videos"),
           statusCode: 200,
