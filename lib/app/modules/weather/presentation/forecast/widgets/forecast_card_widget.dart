@@ -27,6 +27,10 @@ class ForecastCardWidget extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  TextSubtitle(text: forecast.day),
+                  const SizedBox(
+                    height: 4.0,
+                  ),
                   TextSubtitle(text: forecast.weatherConditions),
                   const SizedBox(
                     height: 4.0,
@@ -35,13 +39,7 @@ class ForecastCardWidget extends StatelessWidget {
                     text: '${forecast.minTemperature} ºC ~ ${forecast.maxTemperature} ºC ',
                     overflow: TextOverflow.ellipsis,
                   ),
-                  const SizedBox(
-                    height: 4.0,
-                  ),
-                  TextBody(
-                    text: forecast.description,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+                  
                 ],
               ),
             ),

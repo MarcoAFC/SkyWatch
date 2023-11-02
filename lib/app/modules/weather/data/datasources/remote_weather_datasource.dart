@@ -72,7 +72,7 @@ const weatherData = <String, dynamic>{
   "weather_conditions": "Sunny",
   "id": 1,
   "description": "Clear sky",
-  "icon": "sunny_icon",
+  "icon": "10d",
   "temperature": 30
 };
 
@@ -83,7 +83,8 @@ const forecastData = [
     "weather_conditions": "Sunny",
     "id": 1,
     "description": "Clear sky",
-    "icon": "sunny_icon"
+    "icon": "10d",
+    "day": "11/11"
   },
   {
     "max_temperature": 25,
@@ -91,7 +92,8 @@ const forecastData = [
     "weather_conditions": "Partly Cloudy",
     "id": 2,
     "description": "Partly cloudy sky",
-    "icon": "partly_cloudy_icon"
+    "icon": "10d",
+    "day": "12/11"
   },
   {
     "max_temperature": 28,
@@ -99,6 +101,7 @@ const forecastData = [
     "weather_conditions": "Rainy",
     "id": 3,
     "description": "Light rain showers",
-    "icon": "rainy_icon"
+    "icon": "10d",
+    "day": "13/11"
   }
 ];
