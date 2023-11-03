@@ -1,8 +1,8 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:skywatch/app/modules/app_dependencies.dart';
-import 'package:skywatch/app/modules/video/presentation/pages/camera_page_controller.dart';
-import 'package:skywatch/app/modules/video/presentation/pages/video_review_page.dart';
+import 'package:skywatch/app/modules/video/presentation/pages/camera/camera_page_controller.dart';
+import 'package:skywatch/app/modules/video/presentation/pages/camera/video_review_page.dart';
 
 class CameraPage extends StatefulWidget {
   const CameraPage({super.key});

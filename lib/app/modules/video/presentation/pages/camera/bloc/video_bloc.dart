@@ -2,8 +2,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skywatch/app/core/errors/failure.dart';
 import 'package:skywatch/app/modules/video/domain/entities/upload_file.dart';
 import 'package:skywatch/app/modules/video/domain/usecase/upload_video.dart';
-import 'package:skywatch/app/modules/video/presentation/pages/bloc/video_event.dart';
-import 'package:skywatch/app/modules/video/presentation/pages/bloc/video_state.dart';
+import 'package:skywatch/app/modules/video/presentation/pages/camera/bloc/video_event.dart';
+import 'package:skywatch/app/modules/video/presentation/pages/camera/bloc/video_state.dart';
 
 class VideoBloc extends Bloc<VideoEvent, VideoState> {
   VideoBloc(this._usecase) : super(VideoEmptyState()) {
