@@ -41,7 +41,7 @@ void main() {
 
     test("Weather repository get weather rethrows failure", () async {
       when(() => datasource.getWeather(lat: 'lat', lon: 'lon'))
-          .thenThrow((invocation) async => Failure(message: 'An unexpected error has ocurred, please try again later'));
+          .thenThrow(Failure(message: 'An unexpected error has ocurred, please try again later'));
       try {
         await repository.getWeather(lat: 'lat', lon: 'lon');
       } on Failure catch (e) {

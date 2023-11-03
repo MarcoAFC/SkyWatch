@@ -6,11 +6,14 @@ import 'package:skywatch/app/modules/weather/data/adapters/weather_adapter.dart'
 import 'package:skywatch/app/modules/weather/domain/entities/weather.dart';
 import 'package:skywatch/app/modules/weather/domain/usecases/get_weather.dart';
 
+
+
 class MockWeatherRepository extends Mock implements WeatherRepository {}
 
 void main() {
   WeatherRepository repository = MockWeatherRepository();
-  GetWeather usecase = GetWeather(repository: repository);
+  GetWeather usecase =
+      GetWeather(repository: repository);
   var weather = WeatherAdapter.fromJson({
     "weather_conditions": "Sunny",
     "id": 1,
@@ -27,26 +30,23 @@ void main() {
     });
 
     test("get weather rethrows failure", () async {
-      when(() => repository.getWeather(lat: 'lat', lon: 'lon')).thenThrow(
-          Failure(
-              message:
-                  'An unexpected error has ocurred, please try again later'));
+      when(() => repository.getWeather(lat: 'lat', lon: 'lon'))
+          .thenThrow(Failure(message: 'An unexpected error has ocurred, please try again later'));
       try {
         await usecase(lat: 'lat', lon: 'lon');
       } on Failure catch (e) {
         expect(e, isA<Failure>());
-        expect(e.message,
-            "An unexpected error has ocurred, please try again later");
+        expect(e.message, "An unexpected error has ocurred, please try again later");
       }
     });
 
     test("get weather throws when lat/lan is empty", () async {
+    
       try {
         await usecase(lat: '', lon: '');
       } on Failure catch (e) {
         expect(e, isA<Failure>());
-        expect(e.message,
-            "Invalid coordinates were sent, please try a different set.");
+        expect(e.message, "Invalid coordinates were sent, please try a different set.");
       }
     });
   });
