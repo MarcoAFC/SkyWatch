@@ -49,7 +49,12 @@ class WeatherPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context).pushNamed('/weather/forecast');
                 },
-                child: const TextSubtitle(text: "See forecast"))
+                child: const TextSubtitle(text: "See forecast")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/video_list');
+                },
+                child: const TextSubtitle(text: "See recent videos"))
           ],
         ),
       ),

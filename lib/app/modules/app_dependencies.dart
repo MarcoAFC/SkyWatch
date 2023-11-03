@@ -2,10 +2,12 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:skywatch/app/modules/video/data/datasources/remote_video_datasource.dart';
 import 'package:skywatch/app/modules/video/domain/repositories/video_repository.dart';
+import 'package:skywatch/app/modules/video/domain/usecase/get_videos.dart';
 import 'package:skywatch/app/modules/video/domain/usecase/upload_video.dart';
 import 'package:skywatch/app/modules/video/infra/datasources/video_datasource.dart';
 import 'package:skywatch/app/modules/video/infra/repositories/video_repository_impl.dart';
-import 'package:skywatch/app/modules/video/presentation/pages/bloc/video_bloc.dart';
+import 'package:skywatch/app/modules/video/presentation/pages/camera/bloc/video_bloc.dart';
+import 'package:skywatch/app/modules/video/presentation/pages/videos/bloc/video_list_bloc.dart';
 import 'package:skywatch/app/modules/weather/data/datasources/remote_weather_datasource.dart';
 import 'package:skywatch/app/modules/weather/domain/repositories/weather_repository.dart';
 import 'package:skywatch/app/modules/weather/domain/usecases/get_forecast.dart';
@@ -49,6 +51,8 @@ class DependencyHandler {
     di.registerLazySingleton<UploadVideo>(
         () => UploadVideo(repository: di.get()));
     di.registerLazySingleton<VideoBloc>(() => VideoBloc(di.get()));
+    di.registerLazySingleton<GetVideos>(() => GetVideos(repository: di.get()));
+    di.registerLazySingleton<VideoListBloc>(() => VideoListBloc(di.get()));
   }
 
   T get<T extends Object>() {

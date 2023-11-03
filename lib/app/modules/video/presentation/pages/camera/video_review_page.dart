@@ -4,10 +4,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:skywatch/app/core/widgets/text/text_title.dart';
 import 'package:skywatch/app/modules/video/domain/entities/upload_file.dart';
-import 'package:skywatch/app/modules/video/presentation/pages/bloc/video_bloc.dart';
-import 'package:skywatch/app/modules/video/presentation/pages/bloc/video_event.dart';
-import 'package:skywatch/app/modules/video/presentation/pages/bloc/video_state.dart';
-import 'package:skywatch/app/modules/video/presentation/pages/camera_page_controller.dart';
+import 'package:skywatch/app/modules/video/presentation/pages/camera/bloc/video_bloc.dart';
+import 'package:skywatch/app/modules/video/presentation/pages/camera/bloc/video_event.dart';
+import 'package:skywatch/app/modules/video/presentation/pages/camera/bloc/video_state.dart';
+import 'package:skywatch/app/modules/video/presentation/pages/camera/camera_page_controller.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoReviewPage extends StatefulWidget {
